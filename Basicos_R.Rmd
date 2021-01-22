@@ -1,0 +1,221 @@
+---
+title: "Básicos de R"
+author: "Armando Valdés"
+date: "22/1/2021"
+output: html_document
+---
+
+
+## Temario de la sesión
+
+1.-Conociendo el entorno de R Studio <br>
+2.-Algunos atajos del teclado <br>
+3.-Importación de archivos CSV<br>
+<ul>
+  <li>-Desde una ruta</li>
+  <li>-Desde un directorio</li>
+  <li>-Desde navegador</li>
+  <li>-Desde la nube</li>
+</ul>
+3.1.- Importar archivos xlsx y librerias <br>
+4.-Inspeccionar datos <br>
+5.-Manipular datos <br>
+6.-Regresión Lineal Simple <br>
+
+
+
+### 1.-Conociendo el entorno de R Studio <br>
+```{r uno}
+# View-- panes --pane layout
+# Diferencias entre consola y fuente
+a=10
+b=15
+a+b
+```
+
+```{r dos}
+a<-10
+b<-15
+a+b
+c<-a+b
+print(c)
+```
+```{r}
+a<-10
+b<-15
+c<-a+b
+print(c)
+```
+### 2.-Algunos atajos del teclado <br>
+```{r}
+# Comentarios
+# ctrl + shif + c   Comentario multilinea
+# ctrl + enter Ejecutar código seleccionado
+# ctrl + l Limpiar la consola
+# ctrl + s Guardar
+# alt 126 ~
+# alt +91 +93 []
+# alt +123  125 {}
+# alt +38 &
+# alt +124 |
+```
+### 3.-Importacion de archivos CSV<br>
+```{r}
+# Importar Archivos desde ruta
+datos1= read.csv("C:/Users/Armando/Documents/borrar/iris.csv")
+#print(datos1)
+#View(datos1)
+```
+```{r}
+# Importar archivo desde directorio
+
+# ver directorio
+#getwd()
+
+# Cambiar directorio
+#setwd("C:/Users/Armando/Desktop/Proyectos Github/basicos_r_parte_I")
+
+# Estando en el directorio solo se llama por el nombre del archivo
+#datos1=read.csv("iris.csv")
+
+#View(datos1)
+```
+```{r}
+# Importar archivos desde navegador windows
+
+#datos1 <- read.csv(file.choose(), stringsAsFactors = TRUE)
+#View(datos1)
+```
+```{r}
+# Importar desde la nube
+
+myurl="https://docs.google.com/spreadsheets/d/1_3FfbYFKWrUQWb8inaFe6D2uharQfAbcPXDGVmXERSY/pub?gid=0&single=true&output=csv"
+datos1<-read.csv(url(myurl))
+#View(datos1)
+```
+```{r}
+# Obtener links desde la nube
+# Importar una Spreadsheet de Google
+# 1.-Se da click en Archivo-> Publicar en la web (no se toma el link que da)
+# 2.-Se copia este link y se reemplaza por el key del original (puede ser csv o xlsx)
+# https://docs.google.com/spreadsheets/d/KEY/pub?gid=0&single=true&output=csv
+# https://docs.google.com/spreadsheets/d/KEY/pub?gid=0&single=true&output=xlsx
+
+
+# Traer archivos desde DropBox
+# 1.-Darle click en compartir
+# 2.-Darle click en copiar vínculo
+# 3.-Cambiar "dl=0" por "dl=1"
+
+```
+### 3.1.- Importar archivos xlsx y librerias <br>
+
+```{r}
+# Instalar la biblioteca
+#install.packages('readxl') #Se Instala 1 sola vez
+
+# Asi se llama a la biblioteca
+#library(readxl)
+
+# Llamamos la base igual que las veces anteriores (read_excel por read.csv)
+#Datos1<-read_excel(file.choose())
+
+```
+### 4.-Inspeccionar datos <br>
+```{r}
+# Inspeccionar datos
+
+#print(datos1)
+#View(head(datos1))
+head(datos1,7)
+tail(datos1)
+summary(datos1)
+str(datos1)
+
+```
+
+### 5.-Manipular datos <br>
+
+```{r}
+myurl="https://www.dropbox.com/s/mp2g6s81b29rlha/atitanic.csv?dl=1"
+datos7<-read.csv(url(myurl))
+#View(datos7)
+```
+```{r}
+# Nuevo data Frame solo edad y sexo
+Datos8<- datos7[,c(3,5)]
+#View(Datos8)
+
+```
+```{r}
+# También se pueden especificar las variables por nombre
+# Igual se pueden reordenar
+Datos9<- datos7[,c("Age","Sex")]
+#View(Datos9)
+
+```
+
+```{r}
+# Eliminar columnas
+Datos10<-datos7[,c(-3,-5)]
+#View(Datos10)
+
+# Eliminar columna
+Datos10$EPassengerId<-NULL
+Datos10$Name<-NULL
+
+```
+```{r}
+# Seleccionar filas
+Datos11<- datos7[5:9,]
+#View(Datos11)
+```
+```{r}
+# Filtrar por condiciones
+Datos12<- datos7[datos7$Age>=40,]
+Datos13<- datos7[datos7$Age>=40&datos7$Sex=="male",]
+Datos14<- datos7[datos7$Age>=50|datos7$Sex=="male",]
+#View(Datos14)
+
+```
+### 6.-Regresión Lineal Simple <br>
+```{r}
+# Instalando las bibliotecas
+#install.packages("lmtest")
+#install.packages("readxl")
+#install.packages("ggplot2")
+
+# Lammamos las bibliotecas
+#library(readxl)
+#library(lmtest)
+#library(ggplot2)
+
+```
+```{r}
+# Buscamos el archivo
+Datos1<-read_excel(file.choose())
+regresion1<-lm(Tasa_Crecimiento~Gasto_Publico, Datos1)
+summary(regresion1)
+
+```
+```{r}
+
+```
+```{r}
+
+```
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
