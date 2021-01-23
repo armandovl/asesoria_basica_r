@@ -2,11 +2,13 @@
 title: "Básicos de R"
 author: "Armando Valdés"
 date: "22/1/2021"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 
-## Temario de la sesión
+## Temario de la sesión 1
 
 1.-Conociendo el entorno de R Studio <br>
 2.-Algunos atajos del teclado <br>
@@ -186,27 +188,33 @@ Datos14<- datos7[datos7$Age>=50|datos7$Sex=="male",]
 #install.packages("ggplot2")
 
 # Lammamos las bibliotecas
-#library(readxl)
-#library(lmtest)
-#library(ggplot2)
+# library(readxl)
+# library(lmtest)
+# library(ggplot2)
 
 ```
 ```{r}
 # Buscamos el archivo
-Datos1<-read_excel(file.choose())
-regresion1<-lm(Tasa_Crecimiento~Gasto_Publico, Datos1)
-summary(regresion1)
+#Datos1<-read_excel(file.choose())
+# Datos1<-read_excel("C:/Users/Armando/Documents/borrar/gasto_crecimiento.xlsx")
+
+# Ejecutamos la regresión simple
+# regresion1<-lm(Tasa_Crecimiento~Gasto_Publico, Datos1)
+# summary(regresion1)
+# plot(Tasa_Crecimiento ~ Gasto_Publico, data=Datos1)
+# plot(regresion1)
 
 ```
+
 ```{r}
+#Gráfico con ggplot
 
-```
-```{r}
 
+# ggplot(Datos1, aes(x=Gasto_Publico, y=Tasa_Crecimiento)) +
+#   geom_point(size=2) + 
+#   geom_smooth(method=lm, se=FALSE, fullrange=TRUE)
 ```
-```{r}
 
-```
 
 
 
