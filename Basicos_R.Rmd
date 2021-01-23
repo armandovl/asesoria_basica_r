@@ -19,7 +19,7 @@ output:
   <li>-Desde navegador</li>
   <li>-Desde la nube</li>
 </ul>
-3.1.- Importar archivos xlsx y librerias <br>
+3.1.- Importar archivos xlsx y bibliotecas <br>
 4.-Inspeccionar datos <br>
 5.-Manipular datos <br>
 6.-Regresión Lineal Simple <br>

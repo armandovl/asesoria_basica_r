@@ -4,4 +4,6 @@ Sesión para aprender principios de R <br><br>
 Instalando R y R Studio <br>
 https://www.youtube.com/watch?v=QU9Sxd58PAc
 
-modificando el archivo
+<br>
+Primer video de la Asesoría <br>
+https://youtu.be/u_pDopmEfog
